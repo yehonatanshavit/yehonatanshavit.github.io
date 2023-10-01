@@ -11,7 +11,7 @@ The following pictures shows the differences:
 
 ![My hand positioned on a G string of an electric bass on the 1st, 2nd and 3rd frets, equivelent to Ab, A and Bb, repectivly]()
 
-![My hand positioned on a G string of a double bass, which is *estimated* to be the euivelent of the 1st, 2nd and 3rd frets of the elctric bass]()
+![My hand positioned on a G string of a double bass, which is *estimated* to be the euivelent of the 1st, 2nd and 3rd frets of the elctric bass](https://github.com/yehonatanshavit/yehonatanshavit.github.io/blob/main/images/db_hand.JPG)
 
 
 While in electric bass the frets are located in such way that the intomation is kept the same (sicnce the finger placed in the same place) in doulbe bass one must
