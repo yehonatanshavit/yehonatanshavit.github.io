@@ -41,13 +41,67 @@ This project was born from my will to create a tool to help me with thhis proble
 
 ## The Data
 
-Describe the data the you are working with
+### What is sound
 
-Few words about audio signal
+#### Time Domain
+The perception of sound is related to the detection of changes in air pressure in time by our ears, and the translations of these changes into sound perception by owr brain.  Periodic changes in air pressure (the same changes in air pressure pattern repeats it self for certain, constant period of time) cause the perception of a different tones. Let's use an example:
 
-Describe the "known" parameters: labels, BPM
+The following graph shows a pure sine signal. the x axis is time, and the y axis is the air pressure (arbitraty units)
 
-Describe the full flow that the data is going through -> raw audio signal, metronome alignment, F0 estimation, labels alignment, error calculation, statistics calculation
+[image of signal]
+
+#### Frequency Domain
+
+If we could determine what is the frequency of the signal, we could determine what tone it represents. Luckily, we have a tool just for that, called the Fourier transform, that can change the representation of the signal from time domain to frequency domain (and vise versa). The following graph shows the result of applying a fourier transform on the signal:
+
+[image of fourier transform on the signal]
+
+The x axis shows different frequency values and the y axis shows the amplitude of each frequency. Note that here, we get a very high peak at 440 Hz, meaning that we found out that the frequency of the signal is 440 Hz.
+
+#### Pitch
+
+pitch is the perception of a musical tone as high or low. For example, a female singer sounds "higher" than a male singer. A single musical tone can be described by different pitch values. The following figure shows the piano keyboard with the different notes, each represents a single "pitch".
+
+[piano image]
+
+Each single note is represented with a single frequency. previously we showed that the frequency of the signal is 440 hz. If we would make a speaker membrane vibrate by that frequency (440 vibrations in second) we would percieve that as the note A2. So each note is directly represented by a single "main" of "fundemental" frequency. The following graph shows this connection, where x axis is different frequency values and y the fitting notes:
+
+[frequency-note graph]
+
+Note that there are many more different attributes. The signales in the real woeld data are note purely periodic, and composed from multiple combinations of sine waves, where a single sine is the most dominant at determines the fundemental frequency. We also have timbre which is the "color" of the sound rather than pitch, power which determines how loud the sound is (determines by the amplitue, which represents the amount of air molcules that move)
+
+pitch accuracy is basicaly playing the right note, ot the right fundemental frequency.
+
+#### Musical Note
+
+in it's mose "dry" wat, music is simply a combinations of different notes that change in time. There are many ways to represent music, but the mose used way is the western ...; Here is an example of notes:
+
+[notes image]
+
+the important part here is that each note has:
+1. pitch - represented bt the height of the note in the bar
+2. duration - how much time the note should be played, represented by the "leg" of the note.
+
+### Data Flow
+
+The goal of this project is to create a system that takes raw audio a signal and produces a report about the manner of playing in terms of pitch accuracy. This information can not be achieved directly from raw audio, so some data processing should be preformed. Let's determine what are the known parameters and what are the different stages in data processing.
+
+#### Known Parameters
+
+1. BPM - the BPM is known and would not be estimated from the estimated music. All recrodings should be preformed with a metronome.
+2. What notes are played - each recording should contain known musical notes. The system won't estimate which notes would be played. Instead of score estimation, we would estimate the frequency of the played notes and comapre them to the known frequency of the labels.
+
+After reviwing the basic terms, let's describe the data flow. First, 
+
+#### Data Flow
+1. Recording a muscial phrase with metronome.
+2. creating a file of labels of the musical piece that was played that would contain the BPM and each note's pitch and duration.
+3. Signal Framing
+4. Transforming the signal from time domain to frequency domain
+5. Estimating the Fundemental Frequency of each frame
+6. Aligning the signal with the labels
+7. Comparing each notes recoreded frequency with the "target" frequency, and claculating each note's error
+8. claculating statics, performance "score" and producing different graphs that describe the data
 
 ## The Code
 
