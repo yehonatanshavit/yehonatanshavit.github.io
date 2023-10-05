@@ -105,17 +105,78 @@ After reviwing the basic terms, let's describe the data flow. First,
 
 ## The Code
 
-put areference to jupyter notebook:
-1. how to use the code
-2. describe the different parts in the code 
+For in depth details about the code, and the implementation of the data flow described above, please visit the gihub page of the code: 
 
-## Example File
+Note that the code contains 2 jupyter notebooks to aid you in code activation and understaing:
+1. notebook 1 - describes how to run the code
+2. notebook 2 - contains in depth details about each part of the code
 
-choose an example file to show the process
-1. show how the file was recorded (Video / Audio)
-2. show the command used to run the code in order to process the file
-3. show the results
-4. discuss the results
+
+## Example
+
+### Example File
+
+Let's a simple example to show the process.
+
+The following video shows me playing the scale of C-major on the double bass:
+[video-of-me-playing]
+
+### Running The code
+
+Now, let's clone the code
+```
+a code to clone the code
+```
+
+define virtual environemt
+```
+a code to create virtual environemt
+```
+
+There is a code that runs an example if a C major scale (same recording above), simply run the following command to process an example audio file.
+```
+a code to run example
+```
+After running this code you should see the results under _. Let's discuss the different results
+
+### Results
+
+#### Raw Signal
+Figure 1 shows the raw signal. This is the signal that was read from the recorded audio file, that describes that changes in air pressure. The horizontal gray bars describe the times of the metronome. Note that information can be retrieved already from the raw signal - the first bits of the metronome, the onset and offest of the audio signal, and even the changes of the notes. 
+
+#### F0 Signal
+After moving from time domain from requency domain, and extrating the funcdemental frequency of each window, we get a new signal that represents the fundemental frequency (f0) as function of time. Each circle represents a single frame's F0 values, and the color represents the estimation confidence. The labels are aligned on F0 estimation, One can already see certain locations where F0 is either high / low or accurate comapred to the label. The next step is to analyse the results and present the resuld
+
+#### Pie Plots
+
+The following graph shows 2 pie plots. 
+1. The Left pie shows the ability of the F0 estimation algorithm in estimating F0. 
+2. The right pie shows the performance quality of the cases where F0 could be estimated. Each note is composed from n samples of F0. The "performance" can be either accurate, high or low and calculated by the following way:
+    1. For each note, get all the samples where F0 could be estimated
+    2. for each estimated F0 samples, determine of it's either high, low or almost equal to the label's fundemental frequency.
+    3. based on the parameter above calculate the error of each sample "score" which can be between (-1,1), where -1 is the previous note, 1 is the next note and 0 is exactly the note.
+    4. calculate the mean error
+    5. Divide error to accurate / high / low 
+From the pie plot we can determine 2 score:
+1. The "General" Score: a value between 0 and 100 which is the percentage of accurate cases.
+2. The "Tendency" Score: was there a certain tendecy in terms of error? did i tend to be more high or low?
+
+#### Error Histogram
+Another way of describing the error is showing the histogram of errors. the following graph shows the histogram of error (blue). The orange curve shows a normal fit to this histogram and the green one shows a "theorteical perfect" distribution. 
+
+#### Error as function of Note
+The following graph shows the error as function of pitch, where the left is the lowest and the right is the highest. In this way we can determine if there is tendency to be "more wrong" as function of location on the bass. The distance between adjecent notes changes across the bass.
+
+#### Improvement graph
+The following graph shows the improvement analysis. In this case i took a different musical phrase, taken from Brhans 2nd Symphony:
+[me playing]
+[the piece in youtube]
+I have recorded this piece in BPM _ for _ times.
+
+Let's run the following code:
+[code]
+
+the graph shows the "general" score of each performance, and performances ordered by thier playing time (earliest the first). One can estimated if the performance improved.
 
 ## Limitations
 
