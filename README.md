@@ -1,73 +1,43 @@
-# Motivation
+# Project Name
 
-This project was born from my desire to both music, and data analysis, and the wish to create a work that might combine this subject.
+Few Introduction words
 
+## The Chalange / Problem
 
-# Electric V.S. Double Bass
+Describe the problem you are trying to solve
 
-Altough tune in the same manner, and have the same frequency range, there are many difference between an electric and a double bass such as size, playing techniques, and more. However, one of the fundemental changes is the face that a double bass, comapred to an electric one has no frets, making it a fretless instrument (there are of course fretless electric basses, and they sound wonderfull, for example: []).
+## The Data
 
-The following pictures shows the differences:
+Describe the data the you are working with
 
-![My hand positioned on a G string of an electric bass on the 1st, 2nd and 3rd frets, equivelent to Ab, A and Bb, repectivly]()
+Few words about audio signal
 
-![My hand positioned on a G string of a double bass, which is *estimated* to be the euivelent of the 1st, 2nd and 3rd frets of the elctric bass](https://github.com/yehonatanshavit/yehonatanshavit.github.io/blob/main/images/db_hand.JPG)
+Describe the "known" parameters: labels, BPM
 
+Describe the full flow that the data is going through -> raw audio signal, metronome alignment, F0 estimation, labels alignment, error calculation, statistics calculation
 
-While in electric bass the frets are located in such way that the intomation is kept the same (sicnce the finger placed in the same place) in doulbe bass one must
-listen in order if the the pitch is correct. The following audio files comapre cases of lower, higher and correct pitch.
+## The Code
 
-This problem makes the double bass, and in general other fretless string and brass instruments harder to play. 
+put areference to jupyter notebook:
+1. how to use the code
+2. describe the different parts in the code 
 
-# Using Data Analysis
+## Example File
 
-The goal of my project is to create a tool to aid me in determing how good i am playing in terms of intonation, i.e., how much am i "out of tune" when playing some musical piece.
-In order to play some musical piece good one must practice and return it again and again. I would like to build a program that takes as input an audio file of me playing, and produces a report about my quality of playing.
+choose an example file to show the process
+1. show how the file was recorded (Video / Audio)
+2. show the command used to run the code in order to process the file
+3. show the results
+4. discuss the results
 
-Assumptions:
-    - the BPM is known
-    - a metronome is used 
-    - the notes are known (supervisd approach)
+## Limitations
 
+1. run the code for "perfect" data, and show that the model has some bias 
+2. discuss about model limitations - mainly the labels
 
+## About Me
 
-# The Solution
-
-This chart shows the full algorithmic flow, from a recording of an audio file to a "performance score" that represents how good was the playing in terms of articulation.
-
-(add here image)
-
-In order to run the flow, the user should only run the following command in a command line:
-```
-python audio_main.py
-```
-(add a description of each parameters)
-
-The next section however, will describe in details each part of the flow
-
-# Using The Code
-
-## Loading audio file
-
-## Seperating the Metronome from the Instrument
-
-## Metronome Grid Alignment
-
-## Instrument F0 Estimation
-
-## Align labels with Data
-
-## Save Data
-
-## Results
-
-
-# About Me
-
-My Name is Yehonatan Shavit, 30 Years Old from Tel-Aviv. Married, and an owner of a wonderful dog.
-
-On the data side:
-
-In the music side:
-
-I am currently looking for my next job
+1. Few words about myself
+2. My Data Science / Academic background
+3. My musical background
+4. Contact information
